@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["react-app", { "flow": false, "typescript": true }],
+    "@babel/preset-typescript",
+    "module:metro-react-native-babel-preset"
+  ],
+  "plugins": [
+	"@babel/plugin-transform-typescript",
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    "react-flow-props-to-prop-types",
+    ["react-native-web", { commonjs: true }]
+  ]
+}
