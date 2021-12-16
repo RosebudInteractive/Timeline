@@ -1,13 +1,18 @@
 {
   "presets": [
-    ["react-app", { "flow": false, "typescript": true }],
-    "@babel/preset-typescript",
-    "module:metro-react-native-babel-preset"
+    [
+      "@babel/preset-env", { "modules":  "commonjs", "loose": true }],
+    [
+      "@babel/preset-react",
+      {
+        "pragma": "dom",
+        "pragmaFrag": "DomFrag",
+        "throwIfNamespace": false,
+        "runtime": "classic",
+        "development": false
+      }
+    ]
   ],
   "plugins": [
-	"@babel/plugin-transform-typescript",
-    ["@babel/plugin-proposal-class-properties", { "loose": true }],
-    "react-flow-props-to-prop-types",
-    ["react-native-web", { commonjs: true }]
   ]
 }

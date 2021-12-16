@@ -12,7 +12,11 @@
     "moduleResolution": "node",
     "target": "esnext",
     "jsx": "react",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declarationMap": true,
+    "composite": true,
+    "outDir": "dist",
+    "rootDir": "src"
   },
   "include": ["src/**/*"],
   "exclude": ["test/**/*"]

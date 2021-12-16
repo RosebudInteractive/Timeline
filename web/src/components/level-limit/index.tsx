@@ -1,10 +1,11 @@
 import React, {useMemo} from 'react';
 import {
   View,
-  TouchableOpacity,
   Text,
 } from 'react-native';
 import appStyles from '../../styles';
+import Button from "../ui-kit/button";
+import './level-limit.sass';
 
 type Props = {
   value: number,
@@ -43,22 +44,8 @@ export default function LevelLimit(props: Props) {
       </Text>
 
       <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-        <TouchableOpacity onPress={incLimit}>
-          <View
-            style={[appStyles.button, (value >= MAX_LEVEL_LIMIT) && appStyles.buttonDisabled]}
-          >
-            <Text style={appStyles.buttonText}>
-              +
-            </Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={decLimit}>
-          <View style={[appStyles.button, (value <= 0) && appStyles.buttonDisabled]}>
-            <Text style={appStyles.buttonText}>
-              -
-            </Text>
-          </View>
-        </TouchableOpacity>
+        <Button title={"+"} onClick={incLimit} className={'level-limit__button'} />
+        <Button title={"-"} onClick={decLimit} className={'level-limit__button'} />
       </View>
     </View>
   );

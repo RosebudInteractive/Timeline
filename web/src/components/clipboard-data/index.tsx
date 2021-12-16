@@ -1,5 +1,6 @@
 import React, {useMemo, useState} from "react";
 import './clipboard-data.sass';
+import Button from "../ui-kit/button";
 
 type Props = {
     onApplyClick: Function,
@@ -29,6 +30,6 @@ export default function ClipboardData(props: Props): JSX.Element | null{
 
     return <div className='clipboard-data__container _with-custom-scroll'>
         <textarea className='clipboard-data__input' onChange={inputChangeHandler}/>
-        <button className='clipboard-data__apply-button' disabled={disabled} onClick={onClick}>Применить</button>
+        <Button title={'Применить'} disabled={disabled} onClick={onClick}/>
     </div>
 }

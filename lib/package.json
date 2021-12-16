@@ -1,10 +1,11 @@
 {
   "name": "@rosebud/timeline",
   "main": "dist/timeline.js",
+  "types": "dist/timeline.d.ts",
   "version": "0.1.0",
   "private": true,
+  "main:src": "src/index",
   "dependencies": {
-    "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^12.1.2",

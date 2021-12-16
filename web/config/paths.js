@@ -65,7 +65,7 @@ module.exports = {
   testsSetup: resolveModule(resolveApp, 'src/setupTests'),
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
-  reactNativeWeb: resolveApp('node_modules/react-native-web'),
+  timelineLib: resolveApp('../../lib'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
 };

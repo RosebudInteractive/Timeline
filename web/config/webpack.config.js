@@ -187,7 +187,6 @@ module.exports = function (webpackEnv) {
           // changing JS code would still trigger a refresh.
         ]
         : [
-          '@babel/polyfill',
           paths.appIndexJs,
         ],
     output: {
@@ -303,11 +302,8 @@ module.exports = function (webpackEnv) {
       extensions: paths.moduleFileExtensions
         .map((ext) => `.${ext}`)
         .filter((ext) => useTypeScript || !ext.includes('ts')),
+      mainFields: ['main:src', 'module', 'main', 'browser'],
       alias: {
-        // Support React Native Web
-        // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-        'react-native$': 'react-native-web',
-        // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           'react-dom$': 'react-dom/profiling',
           'scheduler/tracing': 'scheduler/tracing-profiling',
@@ -368,13 +364,26 @@ module.exports = function (webpackEnv) {
                 name: 'static/media/[name].[hash:8].[ext]',
               },
             },
-            // Process application JS with Babel.
-            // The preset includes JSX, Flow, TypeScript, and some ESnext features.
+            {
+              test: /\.ts(x?)$/,
+              exclude: [/node_modules/, /test/],
+              use: [
+                {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ["@babel/preset-env", "@babel/preset-react"]
+                  }
+                },
+                {
+                  loader: 'ts-loader',
+                },
+              ],
+            },
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               include: [
                 paths.appSrc,
-                paths.reactNativeWeb,
+                paths.timelineLib,
               ],
               loader: require.resolve('babel-loader'),
               options: {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ScriptSequence from "../../data/script-sequence";
-import { Timeline, TimelineController, Themes } from "@rosebud/timeline/src"
+import { Timeline, TimelineController, } from "@rosebud/timeline/src"
 import { Event } from "@rosebud/timeline/src/types/event";
 import { Period } from "@rosebud/timeline/src/types/period";
 import { transformEventToVisual, transformPeriodToVisual } from "@rosebud/timeline/src/helpers/tools";
